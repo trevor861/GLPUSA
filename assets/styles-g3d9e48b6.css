@@ -155,3 +155,9 @@ a[href*="legitscript.com"]{display:none!important}
 .glp-spin{animation:glpSpin 7s ease-in-out infinite;transform-origin:50% 50%;will-change:transform;backface-visibility:hidden}
 @keyframes glpSpin{0%{transform:perspective(1100px) rotateY(-32deg) translateY(0)}25%{transform:perspective(1100px) rotateY(0deg) translateY(-8px)}50%{transform:perspective(1100px) rotateY(32deg) translateY(0)}75%{transform:perspective(1100px) rotateY(0deg) translateY(-8px)}100%{transform:perspective(1100px) rotateY(-32deg) translateY(0)}}
 @media (prefers-reduced-motion:reduce){.glp-spin{animation:none}}
+/* spin off */
+.glp-spin{animation:none!important;transform:none!important}
+/* dropdown: no category headings */
+.glh-cat,.glh-mob-cat{display:none!important}
+/* homepage vials: clickable, nothing else changes */
+.sf-glp-float img.sf-glp-vial{cursor:pointer}
