@@ -31,6 +31,96 @@
       "source": "/intake/sermorelin-tablets",
       "destination": "/intake/sermorelin",
       "permanent": false
+    },
+    {
+      "source": "/treatment/ghk-cu-face-cream",
+      "destination": "/treatment/ghk-cu",
+      "permanent": false
+    },
+    {
+      "source": "/intake/ghk-cu-face-cream",
+      "destination": "/intake/ghk-cu",
+      "permanent": false
+    },
+    {
+      "source": "/treatment/ghk-cu-strips",
+      "destination": "/treatment/ghk-cu",
+      "permanent": false
+    },
+    {
+      "source": "/intake/ghk-cu-strips",
+      "destination": "/intake/ghk-cu",
+      "permanent": false
+    },
+    {
+      "source": "/treatment/nad-plus-face-cream",
+      "destination": "/treatment/nad-plus",
+      "permanent": false
+    },
+    {
+      "source": "/intake/nad-plus-face-cream",
+      "destination": "/intake/nad-plus",
+      "permanent": false
+    },
+    {
+      "source": "/treatment/snap-8",
+      "destination": "/treatment/ghk-cu",
+      "permanent": false
+    },
+    {
+      "source": "/intake/snap-8",
+      "destination": "/intake/ghk-cu",
+      "permanent": false
+    },
+    {
+      "source": "/treatment/ahk-cu",
+      "destination": "/treatment/ghk-cu",
+      "permanent": false
+    },
+    {
+      "source": "/intake/ahk-cu",
+      "destination": "/intake/ghk-cu",
+      "permanent": false
+    },
+    {
+      "source": "/treatment/everyday-plus",
+      "destination": "/treatment/semaglutide",
+      "permanent": false
+    },
+    {
+      "source": "/intake/everyday-plus",
+      "destination": "/intake/semaglutide",
+      "permanent": false
+    },
+    {
+      "source": "/men/trt/oral-testosterone",
+      "destination": "/men/trt/injectable-testosterone",
+      "permanent": false
+    },
+    {
+      "source": "/intake/oral-testosterone",
+      "destination": "/intake/injectable-testosterone",
+      "permanent": false
+    },
+    {
+      "source": "/men/trt/testosterone-cream",
+      "destination": "/men/trt/injectable-testosterone",
+      "permanent": false
+    },
+    {
+      "source": "/intake/testosterone-cream",
+      "destination": "/intake/injectable-testosterone",
+      "permanent": false
+    },
+    {
+      "source": "/men/trt/enclomiphene",
+      "destination": "/men/trt/injectable-testosterone",
+      "permanent": false
+    },
+    {
+      "source": "/intake/enclomiphene",
+      "destination": "/intake/injectable-testosterone",
+      "permanent": false
     }
   ]
 }
