@@ -145,3 +145,9 @@ a[href*="legitscript.com"]{display:none!important}
 .pz-btn .pz-p{font-size:13.5px;color:#777}
 .pz-btn.is-on{background:#111;border-color:#111;color:#fff}
 .pz-btn.is-on .pz-p{color:rgba(255,255,255,.75)}
+/* hero vials: one even row, floating in sync */
+.sf-glp-vial-0,.sf-glp-vial-1,.sf-glp-vial-2,.sf-glp-vial-3{--r:0deg;--s:1;animation-delay:0s}
+.sf-glp-vial-0{--x:-206%}.sf-glp-vial-1{--x:-102%}.sf-glp-vial-2{--x:2%}.sf-glp-vial-3{--x:106%}
+.sf-glp-vial{width:clamp(150px,19vw,300px)}
+@keyframes glpFloat{0%,100%{transform:translate(var(--x),-50%)}50%{transform:translate(var(--x),calc(-50% - 16px))}}
+@media (max-width:767px){.sf-glp-vial{width:22vw}.sf-glp-vial-0{--x:-206%}.sf-glp-vial-1{--x:-102%}.sf-glp-vial-2{--x:2%}.sf-glp-vial-3{--x:106%}}
