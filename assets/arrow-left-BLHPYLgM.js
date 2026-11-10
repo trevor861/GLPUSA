@@ -1,1 +1,1 @@
-import{c as o}from"./site-footer-g7301d32d.js";const e=[["path",{d:"m12 19-7-7 7-7",key:"1l729n"}],["path",{d:"M19 12H5",key:"x3x0zl"}]],r=o("arrow-left",e);export{r as A};
+import{c as o}from"./site-footer-g4f83c750.js";const e=[["path",{d:"m12 19-7-7 7-7",key:"1l729n"}],["path",{d:"M19 12H5",key:"x3x0zl"}]],r=o("arrow-left",e);export{r as A};
