@@ -11,6 +11,8 @@ Static prebuilt site (HTML + compiled JS/CSS in `assets/`), hosted on Vercel.
 ## Editing notes
 - Homepage content is rendered by React from `assets/storefront-sections-*.js` AND
   prerendered in `index.html`. Change both, or the edit flickers/reverts on hydration.
+- Edited bundles were renamed with a `-g<hash>` suffix to bust browser caches. When you change an
+  asset again, consider renaming it and replacing every reference (HTML, other bundles) the same way.
 - After editing a JS bundle, syntax-check it: copy to a `.mjs` file and run `node --check`.
 - The site header lives in `assets/Layout-*.js` (function `U`, exported as `H` and also used by the
   homepage via `storefront-sections-*.js`). Its styles are the `.glh-*` rules appended to
