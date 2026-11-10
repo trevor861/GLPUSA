@@ -151,3 +151,7 @@ a[href*="legitscript.com"]{display:none!important}
 .sf-glp-vial{width:clamp(150px,19vw,300px)}
 @keyframes glpFloat{0%,100%{transform:translate(var(--x),-50%)}50%{transform:translate(var(--x),calc(-50% - 16px))}}
 @media (max-width:767px){.sf-glp-vial{width:22vw}.sf-glp-vial-0{--x:-206%}.sf-glp-vial-1{--x:-102%}.sf-glp-vial-2{--x:2%}.sf-glp-vial-3{--x:106%}}
+/* product page: turning vial */
+.glp-spin{animation:glpSpin 7s ease-in-out infinite;transform-origin:50% 50%;will-change:transform;backface-visibility:hidden}
+@keyframes glpSpin{0%{transform:perspective(1100px) rotateY(-32deg) translateY(0)}25%{transform:perspective(1100px) rotateY(0deg) translateY(-8px)}50%{transform:perspective(1100px) rotateY(32deg) translateY(0)}75%{transform:perspective(1100px) rotateY(0deg) translateY(-8px)}100%{transform:perspective(1100px) rotateY(-32deg) translateY(0)}}
+@media (prefers-reduced-motion:reduce){.glp-spin{animation:none}}
