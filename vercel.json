@@ -1,4 +1,36 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/treatment/semaglutide-tablets",
+      "destination": "/treatment/semaglutide",
+      "permanent": false
+    },
+    {
+      "source": "/intake/semaglutide-tablets",
+      "destination": "/intake/semaglutide",
+      "permanent": false
+    },
+    {
+      "source": "/treatment/tirzepatide-tablets",
+      "destination": "/treatment/tirzepatide",
+      "permanent": false
+    },
+    {
+      "source": "/intake/tirzepatide-tablets",
+      "destination": "/intake/tirzepatide",
+      "permanent": false
+    },
+    {
+      "source": "/treatment/sermorelin-tablets",
+      "destination": "/treatment/sermorelin",
+      "permanent": false
+    },
+    {
+      "source": "/intake/sermorelin-tablets",
+      "destination": "/intake/sermorelin",
+      "permanent": false
+    }
+  ]
 }
