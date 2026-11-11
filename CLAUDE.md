@@ -23,3 +23,17 @@ Static prebuilt site (HTML + compiled JS/CSS in `assets/`), hosted on Vercel.
   built from the `faq.html` shell with a copy of the header/footer plus a small inline script for
   the menu. They are not updated by the React bundles: if products or the header change, update
   these pages too (store cards come from the product catalog in `assets/index-*.js`).
+
+## Promo banner, cart drawer, sign-in (added Nov 2026)
+- `winter40.js` (loaded on every page): WINTER40 banner under the header with canvas snow.
+  Clicking the code stores `glpusa_promo_code=WINTER40` in localStorage and fires `glpusa:promo`.
+  WINTER40 = 40% off every unit, not stacked with volume tiers (best of the two wins).
+  Product pages, the volume invoice and the cart drawer all honor it.
+- `cart.js` (loaded on every page): "Your draft invoice" slide-out drawer. Opens from the header
+  cart icon (which links to `/volume-pricing#invoice` as a fallback) and after "Add to invoice".
+  Items are localStorage `glp-bulk`. Its product catalog is generated: after products, prices or
+  images change, run `python3 scripts/cart-catalog.py` (reads the cards in volume-pricing.html).
+- Bump `?v=` on the `winter40.js` / `cart.js` script tags in every page when changing them.
+- Sign-in (`assets/auth-*.js` + `auth.html`): one "Email or phone number" field, one-time code via
+  Supabase `signInWithOtp` / `verifyOtp`. The backend is not connected yet (see the fetch shim in
+  each page's head), so sign-in shows "Accounts aren't connected" until it is.
