@@ -110,11 +110,11 @@ function pct(n){return n>=50?50:n>=10?40:n>=3?5:n>=2?4:0}
 function money(x){return '$'+x.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',')}
 function r2(x){return Math.round(x*100)/100}
 var inp=document.querySelector('[data-pd-q]'),tiers=[].slice.call(document.querySelectorAll('[data-tier]')),mass=[].slice.call(document.querySelectorAll('[data-mass]'));
-function render(){var z=SZ[si],d=pct(q),u=r2(z.price*(1-d/100));mass.forEach(function(b,i){b.classList.toggle('is-on',i===si);var mp=b.querySelector('.pd-mp');if(mp)mp.textContent=money(r2(SZ[i].price*(1-d/100)))});if(document.activeElement!==inp)inp.value=q;
+function render(){var z=SZ[si],d=pct(q),u=r2(z.price*(1-d/100));mass.forEach(function(b,i){b.classList.toggle('is-on',i===si);});if(document.activeElement!==inp)inp.value=q;
 document.querySelector('[data-pd-was]').textContent=d?money(z.price):'';document.querySelector('[data-pd-now]').textContent=money(u);
-document.querySelector('[data-pd-save]').textContent=d?'Save '+d+'% · '+(q>=10?'volume pricing applied':'quantity pricing applied'):'Per vial · one-time purchase';
+document.querySelector('[data-pd-save]').textContent=d?'Per vial · '+z.label+' · save '+d+'% at '+q+' vials':'Per vial · '+z.label+' · one-time purchase';
 tiers.forEach(function(t){var n=+t.dataset.tier;t.classList.toggle('is-on',pct(q)===pct(n))});
-document.querySelector('[data-pd-add]').textContent='Add to invoice · '+money(u*q);if(z.img)img.src=z.img}
+document.querySelector('[data-pd-add]').textContent='Add '+q+(q===1?' vial':' vials')+' to invoice · '+money(r2(u*q));if(z.img)img.src=z.img}
 mass.forEach(function(b,i){b.onclick=function(){si=i;render()}});
 document.querySelector('[data-pd-dec]').onclick=function(){q=Math.max(1,q-1);render()};document.querySelector('[data-pd-inc]').onclick=function(){q=Math.min(999,q+1);render()};
 inp.oninput=function(){q=Math.max(1,Math.min(999,parseInt(inp.value||'1',10)||1));render()};
