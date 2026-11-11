@@ -1,1 +1,1 @@
-import{c}from"./site-footer-g95fcf2b8.js";const e=[["path",{d:"M20 6 9 17l-5-5",key:"1gmf2c"}]],t=c("check",e);export{t as C};
+import{c}from"./site-footer-g13397bee.js";const e=[["path",{d:"M20 6 9 17l-5-5",key:"1gmf2c"}]],t=c("check",e);export{t as C};
