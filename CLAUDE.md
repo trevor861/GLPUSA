@@ -33,6 +33,8 @@ Static prebuilt site (HTML + compiled JS/CSS in `assets/`), hosted on Vercel.
   cart icon (which links to `/volume-pricing#invoice` as a fallback) and after "Add to invoice".
   Items are localStorage `glp-bulk`. Its product catalog is generated: after products, prices or
   images change, run `python3 scripts/cart-catalog.py` (reads the cards in volume-pricing.html).
+  A floating "View draft invoice" pill (count + total) shows bottom-right on every page while the
+  cart has items; it opens the drawer.
 - Bump `?v=` on the `winter40.js` / `cart.js` script tags in every page when changing them.
 - Sign-in (`assets/auth-*.js` + `auth.html`): one "Email or phone number" field, one-time code via
   Supabase `signInWithOtp` / `verifyOtp`. The backend is not connected yet (see the fetch shim in

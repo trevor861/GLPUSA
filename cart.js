@@ -119,6 +119,18 @@
     ".gc-go:disabled{opacity:.35;cursor:default}" +
     ".gc-fine{margin:10px 0 0;text-align:center;font-size:11.5px;color:#999}" +
     "html.gc-lock{overflow:hidden}" +
+    ".gc-pill{position:fixed;right:20px;bottom:20px;z-index:2147481000;display:flex;align-items:center;gap:14px;height:50px;padding:0 20px 0 16px;border:0;border-radius:999px;background:#111;color:#fff;cursor:pointer;box-shadow:0 14px 34px -10px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.06) inset;font-family:'Plus Jakarta Sans','Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;transform:translateY(16px);opacity:0;pointer-events:none;transition:transform .3s cubic-bezier(.2,.8,.2,1),opacity .25s ease}" +
+    ".gc-pill.is-on{transform:none;opacity:1;pointer-events:auto}" +
+    ".gc-pill:hover{background:#000}" +
+    ".gc-pill:focus-visible{outline:2px solid #9fd3ff;outline-offset:3px}" +
+    ".gc-pill .ic{position:relative;display:flex}" +
+    ".gc-pill .ic i{position:absolute;top:-8px;right:-9px;min-width:17px;height:17px;padding:0 4px;box-sizing:border-box;border-radius:999px;background:#fff;color:#111;font-size:10px;font-weight:700;line-height:17px;font-style:normal;text-align:center}" +
+    ".gc-pill .tot{font-size:15px;font-weight:700;letter-spacing:-.01em}" +
+    ".gc-pill .sep{width:1px;height:18px;background:rgba(255,255,255,.28)}" +
+    ".gc-pill .lbl{font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;display:flex;align-items:center;gap:8px}" +
+    "html.gc-lock .gc-pill{opacity:0;pointer-events:none}" +
+    ".bk-bar{display:none!important}" +
+    "@media (max-width:640px){.gc-pill{left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));justify-content:space-between;height:54px}.gc-pill .sep{display:none}.gc-pill .lbl{margin-left:auto}}" +
     "a[data-gc-count]{position:relative}" +
     "a[data-gc-count]:after{content:attr(data-gc-count);position:absolute;top:-2px;right:-4px;min-width:17px;height:17px;padding:0 4px;box-sizing:border-box;border-radius:999px;background:#111;color:#fff;font:700 10px/17px 'Plus Jakarta Sans',system-ui,sans-serif;text-align:center}" +
     "@media (max-width:480px){.gc-it{grid-template-columns:68px 1fr auto;gap:4px 12px}.gc-img{width:68px;height:68px}.gc-nm{font-size:15px}}";
@@ -233,7 +245,29 @@
       if (n) a.setAttribute("data-gc-count", n > 99 ? "99+" : n); else a.removeAttribute("data-gc-count");
     });
   }
-  function refresh() { badge(); render(); }
+  var pill;
+  function updatePill() {
+    if (!document.body) return;
+    var S = summary();
+    if (!pill) {
+      if (!S.units) return;
+      build();
+      pill = document.createElement("button");
+      pill.type = "button"; pill.className = "gc-pill";
+      pill.innerHTML =
+        '<span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 12H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><i></i></span>' +
+        '<span class="tot"></span><span class="sep"></span>' +
+        '<span class="lbl">View draft invoice <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>';
+      pill.addEventListener("click", open);
+      document.body.appendChild(pill);
+      void pill.offsetWidth;
+    }
+    pill.querySelector(".ic i").textContent = S.units > 99 ? "99+" : S.units;
+    pill.querySelector(".tot").textContent = money(S.total);
+    pill.setAttribute("aria-label", "View draft invoice, " + S.units + (S.units === 1 ? " item, " : " items, ") + money(S.total));
+    pill.classList.toggle("is-on", S.units > 0);
+  }
+  function refresh() { badge(); render(); updatePill(); }
 
   window.glpusaCart = { open: open, close: close };
 
@@ -252,5 +286,5 @@
   window.addEventListener("storage", function (e) { if (e.key === KEY || e.key === PKEY) refresh(); });
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", function () { setTimeout(badge, 300); });
   else setTimeout(badge, 300);
-  window.addEventListener("load", badge);
+  window.addEventListener("load", function () { badge(); setTimeout(updatePill, 200); });
 })();
